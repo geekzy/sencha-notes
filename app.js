@@ -15,7 +15,7 @@ Ext.application({
 
     controllers: ["Main"],
 	stores: ['Notes'],
-	views: ['Main', 'NotesList'],
+	views: ['Main', 'NotesList', 'NoteEditor'],
 
     icon: {
         57: 'resources/icons/Icon.png',

@@ -1,8 +1,8 @@
 Ext.define('SenchaNotes.store.Notes', {
 	extend: 'Ext.data.Store',
-	requires: 'Ext.data.proxy.LocalStorage',
+	requires: ['Ext.data.proxy.LocalStorage'],
 	
-	config: {
+	config: {		
 		model: 'SenchaNotes.model.Note',
 		data: [
 			{ title: 'Note 1', narrative: 'narrative 1'},

@@ -20,6 +20,7 @@ Ext.define('SenchaNotes.controller.Main', {
 	},
 	launch: function() {
 		this.callParent(arguments);
+		// Load when using dynamic data
 		// Ext.getStore('Notes').load();
 		console.debug('launch');
 	},
