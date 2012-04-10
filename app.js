@@ -5,6 +5,8 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
+    models: ["Note"],
+
     name: 'SenchaNotes',
 
     requires: [
@@ -12,7 +14,8 @@ Ext.application({
     ],
 
     controllers: ["Main"],
-	views: ['Main'],
+	stores: ['Notes'],
+	views: ['Main', 'NotesList'],
 
     icon: {
         57: 'resources/icons/Icon.png',

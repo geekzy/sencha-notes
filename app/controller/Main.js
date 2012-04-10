@@ -3,14 +3,32 @@ Ext.define('SenchaNotes.controller.Main', {
     
     config: {
         refs: {
-            newNoteBtn: 'button[action=new-note]'
+			notesList: 'main'
         },
         control: {
-            newNoteBtn: {tap: 'showNewNote'}
+            notesList: {
+				newNoteCmd: 'showNewNote',
+				editNoteCmd: 'editNote'
+				
+			}
         }
     },
 	
+	init: function() {
+		this.callParent(arguments);
+		console.debug('init');
+	},
+	launch: function() {
+		this.callParent(arguments);
+		// Ext.getStore('Notes').load();
+		console.debug('launch');
+	},
+	
 	showNewNote: function() {
 		console.debug('showing new note form');
+	},
+	
+	editNote: function(list, record) {
+		console.debug('editing note');
 	}
 });

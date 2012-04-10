@@ -1,19 +1,66 @@
+$grey: #666;
+
 @import 'sencha-touch/default/all';
 
 // You may remove any of the following modules that you
 // do not use in order to create a smaller css file.
 @include sencha-panel;
 @include sencha-buttons;
-@include sencha-sheet;
-@include sencha-picker;
-@include sencha-tabs;
+// @include sencha-sheet;
+// @include sencha-picker;
+// @include sencha-tabs;
 @include sencha-toolbar;
 @include sencha-toolbar-forms;
-@include sencha-indexbar;
+// @include sencha-indexbar;
 @include sencha-list;
 @include sencha-layout;
-@include sencha-carousel;
+// @include sencha-carousel;
 @include sencha-form;
 @include sencha-msgbox;
 
 // Your custom code goes here...
+/**
+ * Mixin
+ */
+@mixin list-item {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-right: 25px;
+}
+
+/**
+ * Custom Styles
+ */
+.note-list-empty-text { padding: 10px; }
+.list-item-title {
+	float: left;
+	width: 100%;
+	font-size: 90%;
+	line-height: 150%;
+	@include list-item;
+}
+.list-item-narrative {
+	float: left;
+	width: 95%;
+	color: $grey;
+	font-size: 80%;
+	@include list-item;
+}
+
+/**
+ * Overriding Sencha Styles
+ */
+.x-list .x-list-item .x-list-item-label {
+	min-height: 3.5em!important;
+}
+.x-list .x-list-disclosure {
+	position: absolute;
+	bottom: 0.85em;
+	right: 0.44em;
+	
+}
+.x-item-selected {
+	.list-item-title {color: white;}
+	.list-item-narrative {color: white;}
+}
