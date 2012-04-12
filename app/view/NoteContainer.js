@@ -16,7 +16,7 @@ Ext.define('SenchaNotes.view.NoteContainer', {
 		
 		topToolbar = {
 			xtype: 'toolbar',
-			title: 'My Notes',
+			title: 'My Note',
 			docked: 'top',
 			items: [
 				{xtype: 'spacer'},
