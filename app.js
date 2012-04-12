@@ -15,7 +15,7 @@ Ext.application({
 
     controllers: ["Main"],
 	stores: ['Notes'],
-	views: ['Main', 'NotesList', 'NoteEditor'],
+	views: ['NoteContainer', 'NotesList', 'NoteEditor'],
 
     icon: {
         57: 'resources/icons/Icon.png',
@@ -32,7 +32,10 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('SenchaNotes.view.Main'));
+        Ext.Viewport.add([
+            {xtype: 'notecontainer'},
+            {xtype: 'noteeditor'}
+        ]);
     },
 
     onUpdated: function() {

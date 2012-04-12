@@ -8,19 +8,22 @@ Ext.define('SenchaNotes.view.NoteEditor', {
 	},
 	
 	initialize: function() {
-		var backButton, saveButton, topToolbar, buttomToolbar, deleteButton;
+		var backButton, saveButton, topToolbar, bottomToolbar, deleteButton,
+		    noteEditorTitle, noteEditorNarrative;
 		this.callParent(arguments);
 		
 		backButton = {
 			xtype: 'button',
 			ui: 'back',
-			text: 'Home'
+			text: 'Home',
+			handler: this.onBackHomeTap, scope: this
 		};
 		
 		saveButton = {
 			xtype: 'button',
 			ui: 'action',
-			text: 'Save'
+			text: 'Save',
+			handler: this.onSaveNoteTap, scope: this
 		};
 		
 		topToolbar = {
@@ -34,13 +37,46 @@ Ext.define('SenchaNotes.view.NoteEditor', {
 			]
 		};
 		
-		deleteButton: {
+		deleteButton = {
 			xtype: 'button',
 			iconCls: 'trash',
 			iconMask: true,
 			scope: this
 		};
+			
+		bottomToolbar = {
+		    xtype: 'toolbar',
+		    docked: 'bottom',
+		    items: [deleteButton]
+		};
 		
+		noteEditorTitle = {
+		    xtype: 'textfield',
+		    name: 'title',
+		    label: 'Title',
+		    required: true
+		};
 		
+		noteEditorNarrative = {
+		    xtype: 'textareafield',
+		    name: 'narrative',
+		    label: 'Narrative'
+		};
+		
+		this.add([
+		    topToolbar,
+		    {xtype: 'fieldset', items: [noteEditorTitle, noteEditorNarrative]}, 
+		    bottomToolbar
+		]);
+	},
+	
+	onBackHomeTap: function() {
+	    console.log('backHome');
+	    this.fireEvent('backHomeCmd', this);
+	},
+	
+	onSaveNoteTap: function() {
+	    console.log('saveNote');
+	    this.fireEvent('saveNoteCmd', this);
 	}
 });
